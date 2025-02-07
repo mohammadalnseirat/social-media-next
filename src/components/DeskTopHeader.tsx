@@ -3,11 +3,10 @@ import ModeToggle from "./ModeToggle";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { BellIcon, HomeIcon, LogInIcon, UserIcon } from "lucide-react";
-import { SignInButton } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 
 async function DeskTopHeader() {
   const user = await currentUser();
-  console.log(user);
   return (
     <div className="hidden md:flex items-center space-x-4">
       <ModeToggle />
@@ -44,6 +43,7 @@ async function DeskTopHeader() {
               <span className="hidden lg:block">Profile</span>
             </Link>
           </Button>
+          <UserButton />
         </>
       ) : (
         <SignInButton mode="modal">

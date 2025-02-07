@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import DeskTopHeader from "./DeskTopHeader";
 import MobileHeader from "./MobileHeader";
+import syncUser from "@/actions/user.action";
 
 async function Header() {
   const user = await currentUser();
+  if (user) await syncUser(); //? POST request
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60">
