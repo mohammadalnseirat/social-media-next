@@ -1,4 +1,5 @@
 import CreatePost from "@/components/CreatePost";
+import RecomendedUsers from "@/components/RecomendedUsers";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       <div className="lg:col-span-6">
         <CreatePost />
       </div>
-      <div className="lg:col-span-4">whoToFollow</div>
+      <div className="hidden lg:block lg:col-span-4 sticky top-20">
+        <RecomendedUsers />
+      </div>
     </div>
   );
 }
