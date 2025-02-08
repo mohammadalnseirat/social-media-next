@@ -58,3 +58,15 @@ export async function getUserByClerkId(clerkId: string) {
     },
   });
 }
+
+//! 3-Function To Get User Id based On The Clerk Id From The Database:
+export async function getDbUser() {
+  const { userId: clerkId } = await auth();
+  if (!clerkId) return null;
+
+  const user = await getUserByClerkId(clerkId);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user.id;
+}
