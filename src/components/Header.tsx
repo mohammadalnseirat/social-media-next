@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DeskTopHeader from "./DeskTopHeader";
 import MobileHeader from "./MobileHeader";
-import syncUser from "@/actions/user.action";
+import { syncUser } from "@/actions/user.action";
 
 async function Header() {
   const user = await currentUser();

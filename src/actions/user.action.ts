@@ -3,7 +3,7 @@
 import prisma from "@/lib/prisma";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
-async function syncUser() {
+export async function syncUser() {
   try {
     //*1-Get The User Id and the current User from clerk:
     const { userId } = await auth();
@@ -41,4 +41,20 @@ async function syncUser() {
   }
 }
 
-export default syncUser;
+//! 2-Function To Get User Details from the database:
+export async function getUserByClerkId(clerkId: string) {
+  return await prisma.user.findUnique({
+    where: {
+      clerkId,
+    },
+    include: {
+      _count: {
+        select: {
+          followers: true,
+          following: true,
+          posts: true,
+        },
+      },
+    },
+  });
+}

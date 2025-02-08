@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,7 +47,9 @@ export default function RootLayout({
                 <div className="max-w-7xl mx-auto px-4">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Sidebar Start Here */}
-                    <div className="hidden lg:block lg:col-span-3">sidebar</div>
+                    <div className="hidden lg:block lg:col-span-3">
+                      <Sidebar />
+                    </div>
                     {/* Sidebar End Here */}
                     {/* Content Start Here */}
                     <div className="lg:col-span-9">{children}</div>
