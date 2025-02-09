@@ -41,7 +41,7 @@ function CreatePost() {
     }
   };
   return (
-    <Card className="mb-6 border border-gray-300">
+    <Card className="mb-6">
       <CardContent className="pt-5 ">
         <div className="space-y-4">
           {/* Teaxt Area and Avatar Start Here */}

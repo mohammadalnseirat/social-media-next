@@ -121,7 +121,7 @@ export async function toggleFollowUser(targetUserId: string) {
     const userId = await getDbUser();
 
     //? Check If There is no user(not authenticated):
-    if (!userId) return null;
+    if (!userId) return;
 
     //? check if try to follow yourself:
     if (userId === targetUserId) {
